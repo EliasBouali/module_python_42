@@ -61,6 +61,21 @@ def main() :
         percentage = round(percentage, 2)
         print(f"{item}: {percentage}%")
 
+    print("\n === most abundant ===")
+    item_max = list(inventory.keys())[0]
+    item_min = list(inventory.keys())[0]
+    for item_name, quantity in inventory.items() :
+        if quantity > inventory[item_max] :
+            item_max = item_name
+        if quantity < inventory[item_min] :
+            item_min = item_name
+
+    print(f"Most abundant : {item_max} ({inventory[item_max]})")
+    print(f"Least abundant : {item_min} ({inventory[item_min]})")
+
+    print("\n === Adding new item ===")
+    inventory.update({"shield": 5})
+    display_inventory(inventory)
 
 if __name__ == "__main__" :
     main()
